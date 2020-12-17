@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const fs = require('fs-extra');
 const fileUpload = require('express-fileUpload');
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config()
@@ -65,6 +66,7 @@ app.post('/addADoctor', (req, res) => {
     const file = req.files.file;
     const name = req.body.name;
     const email = req.body.email;
+
     const newImg = file.data;
     const encImg = newImg.toString('base64');
 
